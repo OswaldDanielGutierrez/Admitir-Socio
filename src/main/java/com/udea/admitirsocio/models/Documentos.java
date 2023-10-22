@@ -1,0 +1,44 @@
+package com.udea.admitirsocio.models;
+
+import jakarta.persistence.*;
+import jakarta.persistence.Lob;
+import lombok.Data;
+
+
+@Entity
+@Data
+public class Documentos {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "documentos_Id")
+    private Long documentosId;
+
+    @Lob
+    @Column(columnDefinition = "BLOB")
+    private byte[] licencia;
+
+    @Lob
+    @Column(columnDefinition = "BLOB", name = "doc_cedula")
+    private byte[] docCedula;
+
+    @Lob
+    @Column(columnDefinition = "BLOB")
+    private byte[] soat;
+
+    @Lob
+    @Column(columnDefinition = "BLOB")
+    private byte[] tecnomecanica;
+
+    @Lob
+    @Column(columnDefinition = "BLOB", name = "tarjeta_propiedad")
+    private byte[] tarjetaPropiedad;
+
+    @Lob
+    @Column(columnDefinition = "BLOB", name = "foto_conductor")
+    private byte[] fotoConductor;
+
+    @Lob
+    @Column(columnDefinition = "BLOB", name = "foto_vehiculo")
+    private byte[] fotoVehiculo;
+}

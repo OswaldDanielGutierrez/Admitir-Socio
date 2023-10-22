@@ -1,0 +1,22 @@
+package com.udea.admitirsocio.models;
+
+import jakarta.persistence.*;
+import lombok.Data;
+
+@Data
+@Entity
+public class Manager {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long managerId;
+
+    @Column(length = 45)
+    private String usuario;
+
+    @Column(length = 45)
+    private String nombre;
+
+    @Column(length = 45)
+    private String contrasena;
+}
