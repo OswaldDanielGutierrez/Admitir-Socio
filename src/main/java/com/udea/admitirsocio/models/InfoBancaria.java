@@ -17,6 +17,10 @@ public class InfoBancaria {
     @Column(name = "Bancario_id")
     private Long idBancario;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "conductor_id")
+    private Conductor conductor;
+
     @Column(length = 20, name = "numero_cuenta")
     private String numeroCuenta;
 

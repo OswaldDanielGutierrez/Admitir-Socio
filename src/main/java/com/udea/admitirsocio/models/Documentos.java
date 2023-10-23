@@ -14,6 +14,10 @@ public class Documentos {
     @Column(name = "documentos_Id")
     private Long documentosId;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "conductor_id")
+    private Conductor conductor;
+
     @Lob
     @Column(columnDefinition = "BLOB")
     private byte[] licencia;

@@ -12,6 +12,14 @@ public class Solicitud {
     @Column(name = "solicitud_id")
     private Long solicitudId;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "conductor_id")
+    private Conductor conductor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "manager_id")
+    private Solicitud solicitud;
+
     @Column(length = 15)
     private String cedula;
 
