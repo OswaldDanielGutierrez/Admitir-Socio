@@ -1,6 +1,8 @@
 package com.udea.admitirsocio.models;
 
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 @Entity
@@ -12,10 +14,12 @@ public class Solicitud {
     @Column(name = "solicitud_id")
     private Long solicitudId;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "conductor_id")
     private Conductor conductor;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "manager_id")
     private Solicitud solicitud;

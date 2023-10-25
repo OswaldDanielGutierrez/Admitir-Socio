@@ -1,7 +1,9 @@
 package com.udea.admitirsocio.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
@@ -20,12 +22,14 @@ public class Conductor {
     @Column(name = "conductor_id")
     private Long conductorId;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @Column(length = 55)
     private String nombre;
 
     @Column(length = 55)
     private String apellido;
 
+    @Email
     @Column(length = 100)
     private String email;
 
@@ -45,8 +49,6 @@ public class Conductor {
     @Column(name = "fecha_Vencimiento_Licencia")
     private Date fechaVencimientoLicencia;
 
-    @Pattern(regexp = "[MF]")
-    private char genero;
 
     @Column(length = 30, nullable = true, name = "estado_actividad")
     private String estadoActividad;
